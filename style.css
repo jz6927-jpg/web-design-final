@@ -1,0 +1,1489 @@
+/* --- FONTS & VARIABLES --- */
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://fonts.gstatic.com/s/cormorantgaramond/v16/co3bmX5slCNuHLi8bLeY9MK7whWMhyjQAllvuQWJ5heb.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/cormorantgaramond/v16/co3YmX5slCNuHLi8bLeY9MK7whWMhyjYrEPjuw.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 600;
+    src: url('https://fonts.gstatic.com/s/cormorantgaramond/v16/co3bmX5slCNuHLi8bLeY9MK7whWMhyjQKl9vuQWJ5heb.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/cormorantgaramond/v16/co3bmX5slCNuHLi8bLeY9MK7whWMhyjQSlhvuQWJ5heb.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WRhyyTh89Y.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wdhyyzh89Y.woff2') format('woff2');
+}
+
+:root {
+    --primary-dark: #1a1612;
+    --primary-color: #2c3e50;
+    --accent-gold: #c9a961;
+    --accent-copper: #b87333;
+    --bg-cream: #faf8f3;
+    --bg-white: #ffffff;
+    --text-dark: #2d2520;
+    --text-muted: #6b6560;
+    --border-light: #e8e3dc;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.18);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* --- HEADER --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(26, 22, 18, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--accent-gold);
+    box-shadow: var(--shadow-md);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px 40px;
+}
+
+nav a {
+    color: #d4cfc7;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 3px;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--accent-gold);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 40px;
+    background: linear-gradient(135deg, #1a1612 0%, #2c2420 100%);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(184, 115, 51, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: #d4cfc7;
+    margin-bottom: 50px;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.video-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-copper));
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.featured-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+}
+
+/* --- MAIN CONTENT --- */
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 40px;
+}
+
+/* --- INTRO TEXT --- */
+.intro-text {
+    max-width: 900px;
+    margin: 0 auto 120px;
+    text-align: center;
+}
+
+.intro-text h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--primary-dark);
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.intro-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+.intro-text p {
+    font-size: 1.125rem;
+    line-height: 2;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-top: 50px;
+}
+
+/* --- CENTURY CARDS --- */
+.century-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    align-items: center;
+    background: var(--bg-white);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 60px;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+}
+
+.card:nth-child(even) {
+    direction: rtl;
+}
+
+.card:nth-child(even) > * {
+    direction: ltr;
+}
+
+.img-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.img-container::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-copper));
+    z-index: -1;
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.card:hover .img-container img {
+    transform: scale(1.05);
+}
+
+.card-text {
+    padding: 0 20px;
+}
+
+.card-text h3 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.card-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--accent-gold);
+}
+
+.card-text p {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* --- JAVASCRIPT INTERACTIVE ELEMENTS --- */
+
+/* Lightbox Overlay (Museum Page) */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    background: var(--bg-white);
+    padding: 60px;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    animation: slideUp 0.4s ease-out;
+}
+
+.lightbox-img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: var(--shadow-md);
+}
+
+.lightbox-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lightbox-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.lightbox-artist {
+    font-size: 1.3rem;
+    color: var(--accent-gold);
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.lightbox-details {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.lightbox-close:hover {
+    color: var(--accent-gold);
+    background: var(--bg-cream);
+    transform: rotate(90deg);
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 55px;
+    height: 55px;
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+    font-weight: bold;
+}
+
+.scroll-to-top:hover {
+    background: var(--primary-dark);
+    color: var(--accent-gold);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Filter Container (Artists Page) */
+.filter-container {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px;
+    background: var(--bg-white);
+    border-radius: 2px;
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-container h3 {
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 12px 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dark);
+    background: var(--bg-cream);
+    border: 2px solid var(--border-light);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    border-color: var(--accent-gold);
+}
+
+/* Form Error Message */
+.error-message {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive for JavaScript Elements */
+@media (max-width: 767px) {
+    .lightbox-content {
+        grid-template-columns: 1fr;
+        padding: 40px 30px;
+        gap: 30px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .lightbox-img {
+        max-height: 50vh;
+    }
+
+    .lightbox-title {
+        font-size: 1.8rem;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        font-size: 2rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    .filter-container {
+        padding: 30px 20px;
+    }
+
+    .filter-buttons {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+}
+
+/* --- CONTACT FORM SECTION --- */
+.contact-section {
+    max-width: 900px;
+    margin: 100px auto 0;
+    padding: 0 20px;
+}
+
+.contact-container {
+    background: var(--bg-white);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.contact-header {
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.08) 0%, transparent 100%);
+    padding: 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.contact-header h2 {
+    font-size: 3rem;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.contact-header p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    padding: 60px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--primary-dark);
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background: var(--bg-cream);
+    border: 2px solid var(--border-light);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-gold);
+    background: var(--bg-white);
+    box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+    line-height: 1.6;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 18px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-dark);
+    background: var(--accent-gold);
+    border: 2px solid var(--accent-gold);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: transparent;
+    color: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* --- BUTTON STYLING --- */
+.btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: var(--primary-dark);
+    color: var(--accent-gold);
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--accent-gold);
+}
+
+.btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* --- ARTWORK STYLING (For Museum Page) --- */
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+.framed-art {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: var(--shadow-lg);
+}
+
+.framed-art::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-copper));
+    z-index: -1;
+    border-radius: 2px;
+}
+
+figcaption {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 20px;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: var(--primary-dark);
+    color: #d4cfc7;
+    text-align: center;
+    padding: 40px;
+    margin-top: 100px;
+    border-top: 1px solid var(--accent-gold);
+}
+
+footer p {
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* --- MUSEUM PAGE STYLES --- */
+.museum-intro {
+    max-width: 900px;
+    margin: 0 auto 100px;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.museum-intro p {
+    font-size: 1.125rem;
+    line-height: 2;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* Click Hint Banner */
+.click-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, rgba(184, 115, 51, 0.08) 100%);
+    border: 2px dashed var(--accent-gold);
+    border-radius: 8px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.click-hint .hint-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--accent-gold);
+    animation: rotate 3s linear infinite;
+}
+
+.click-hint p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--primary-dark);
+    font-weight: 400;
+}
+
+.click-hint strong {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(201, 169, 97, 0.4);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 10px rgba(201, 169, 97, 0);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.museums-container {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    margin-bottom: 100px;
+}
+
+/* Museum Section */
+.museum-section {
+    background: var(--bg-white);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.museum-header {
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.08) 0%, rgba(184, 115, 51, 0.05) 100%);
+    padding: 60px;
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+.museum-info h2 {
+    font-size: 3rem;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.museum-location {
+    font-size: 1.125rem;
+    color: var(--accent-gold);
+    font-weight: 500;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.museum-description {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-muted);
+    font-weight: 300;
+    max-width: 900px;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 50px;
+    padding: 60px;
+}
+
+.artwork-item {
+    background: var(--bg-cream);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.artwork-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Featured Artwork (for Mona Lisa, etc.) */
+.featured-artwork {
+    grid-column: span 1;
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.08) 0%, transparent 100%);
+    border: 2px solid var(--accent-gold);
+}
+
+.artwork-frame {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: var(--bg-white);
+    cursor: pointer;
+}
+
+/* Zoom Overlay */
+.zoom-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 22, 18, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.artwork-item:hover .zoom-overlay {
+    opacity: 1;
+}
+
+.zoom-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    animation: zoomPulse 1.5s ease-in-out infinite;
+}
+
+.zoom-overlay p {
+    color: var(--accent-gold);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+@keyframes zoomPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.artwork-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(201, 169, 97, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.artwork-item:hover .artwork-frame::before {
+    opacity: 1;
+}
+
+.artwork-frame img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.artwork-item:hover .artwork-frame img {
+    transform: scale(1.08);
+}
+
+.artwork-item figcaption {
+    padding: 30px;
+    text-align: left;
+}
+
+.artwork-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.artwork-artist {
+    font-size: 1rem;
+    color: var(--accent-gold);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.artwork-date {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.artwork-details {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* Visit Information Section */
+.visit-info {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #2c2420 100%);
+    padding: 80px 60px;
+    border-radius: 2px;
+    margin: 0 -40px;
+}
+
+.visit-info h2 {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 300;
+}
+
+.visit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.visit-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 2px;
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    transition: all 0.3s ease;
+}
+
+.visit-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-gold);
+    transform: translateY(-5px);
+}
+
+.visit-card h3 {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.visit-card p {
+    font-size: 0.95rem;
+    color: #d4cfc7;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.visit-card p strong {
+    color: var(--accent-gold);
+    font-weight: 500;
+}
+
+.visit-card .btn {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    border: 2px solid var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.visit-card .btn:hover {
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+}
+
+/* --- PAGE HERO (For Artists/Museum Pages) --- */
+.page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 40px;
+    background: linear-gradient(135deg, #2c2420 0%, #1a1612 100%);
+    border-bottom: 1px solid var(--accent-gold);
+}
+
+.page-hero-content h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+.page-hero-content p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: #d4cfc7;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* --- ARTISTS PAGE STYLES --- */
+.artists-intro {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.artists-intro p {
+    font-size: 1.125rem;
+    line-height: 2;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.artists-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin-bottom: 60px;
+}
+
+.artist-profile {
+    background: var(--bg-white);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s ease;
+}
+
+.artist-profile:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* Artist Header Section */
+.artist-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 50px;
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.05) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border-light);
+    align-items: center;
+}
+
+.artist-portrait {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.artist-portrait::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-copper));
+    z-index: -1;
+    border-radius: 2px;
+}
+
+.artist-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.artist-profile:hover .artist-portrait img {
+    transform: scale(1.05);
+}
+
+.artist-title h2 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.artist-years {
+    font-size: 1.125rem;
+    color: var(--accent-gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.artist-role {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* Artist Content Section */
+.artist-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 50px;
+}
+
+.artist-bio p {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.artist-bio p:last-child {
+    margin-bottom: 0;
+}
+
+.artist-masterpiece {
+    display: flex;
+    justify-content: center;
+}
+
+.artist-masterpiece figure {
+    max-width: 100%;
+}
+
+.masterpiece-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.artist-profile:hover .masterpiece-img {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.artist-masterpiece figcaption {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.artist-masterpiece figcaption strong {
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Artist Works Section */
+.artist-works {
+    padding: 40px 50px 50px;
+    background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 97, 0.03) 100%);
+    border-top: 1px solid var(--border-light);
+}
+
+.artist-works h3 {
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.artist-works ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.artist-works li {
+    padding: 12px 20px;
+    background: var(--bg-white);
+    border-left: 3px solid var(--accent-gold);
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.artist-works li:hover {
+    background: var(--bg-cream);
+    border-left-width: 5px;
+    transform: translateX(5px);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (min-width: 768px) {
+    .card {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    nav {
+        gap: 80px;
+    }
+
+    .artist-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    nav {
+        gap: 30px;
+        padding: 20px;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    main {
+        padding: 60px 20px;
+    }
+
+    .card {
+        padding: 40px 30px;
+        gap: 30px;
+    }
+
+    .intro-text {
+        margin-bottom: 80px;
+    }
+
+    .century-grid {
+        gap: 60px;
+    }
+
+    /* Artists Page Mobile */
+    .artist-header {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .artist-portrait {
+        margin: 0 auto;
+    }
+
+    .artist-content {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .artist-works {
+        padding: 30px;
+    }
+
+    .artist-works ul {
+        grid-template-columns: 1fr;
+    }
+
+    /* Museum Page Mobile */
+    .museum-header {
+        padding: 40px 30px;
+    }
+
+    .museum-info h2 {
+        font-size: 2rem;
+    }
+
+    .click-hint {
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .click-hint p {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        gap: 40px;
+    }
+
+    .visit-info {
+        padding: 60px 30px;
+        margin: 0 -20px;
+    }
+
+    .visit-info h2 {
+        font-size: 2rem;
+    }
+
+    .visit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact Form Mobile */
+    .contact-header {
+        padding: 40px 30px;
+    }
+
+    .contact-header h2 {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        padding: 40px 30px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
